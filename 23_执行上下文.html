@@ -1,0 +1,37 @@
+<!--
+
+函数执行上下文
+    在调用函数，准备执行函数体之前，创建对应的函数执行上下文对象
+    对局部数据进行预处理
+        形参赋值变成实参，添加为执行上下文的属性
+        argument赋值，形成实参列表，添加执行上下文属性
+        var定义局部变量，赋值undefined
+        function声明的函数赋值fun
+        this赋值函数调用对象
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    fn(1,2) //直接调用，调用对象为window
+    function fn(a1) {
+        console.log('这是a1'+a1)
+        console.log('这是a2'+a2)
+        console.log('-------------')
+        console.log(a3)
+        console.log(this)//window
+        console.log(arguments) //伪数组
+        function a3() {
+            console.log('这是a3')
+        }
+        var a2
+    }
+</script>
+
+</body>
+</html>
