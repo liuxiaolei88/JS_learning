@@ -1,0 +1,39 @@
+<!--
+1：代码的分类
+    初始化代码
+    回调代码
+
+2：js引擎执行代码的基本流程
+    先执行初始化代码：包含一些特别的代码
+        设置定时器
+        绑定监听
+        发送ajax请求
+    后面在某个时刻才会执行行回调代码
+3：为什么js不用多线程？
+    与用途有关，作为浏览器脚本语言，主要用于与用户交互以及操作dom，这决定了他只能是单线程，否则会带来复杂同步问题
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+  //先执行1111，alter会暂停主线程，点击去掉alter以后，会等到4s后执行5555
+  // 先执行定时器，但是里面function不执行
+  setTimeout(function () {
+    console.log('1111')
+    alert('1111')
+    console.log(Date.now())
+  },1000)
+  setTimeout(function () {
+    console.log('5555')
+    alert('5555')
+    console.log(Date.now())
+  },5000)
+
+</script>
+
+</body>
+</html>
