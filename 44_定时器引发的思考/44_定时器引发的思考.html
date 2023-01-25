@@ -1,0 +1,27 @@
+<!--
+定时器实在主线程执行，js是单线程的
+使用事件管理模型执行
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--点击计时器然后启动计时器，计时器结束后会输出-->
+<button id="btn">按钮</button>
+<script type="text/javascript">
+  document.getElementById('btn').onclick=function () {
+    var start = Date.now()
+    console.log('启动定时器前')
+    setTimeout(function () {
+      console.log('定时器执行了',Date.now()-start)
+    },2000)
+      console.log('启动定时器后')
+  }
+
+</script>
+
+</body>
+</html>
