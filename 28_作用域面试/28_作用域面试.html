@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript" >
+    var fn = function () {
+        console.log(fn)
+    }
+    fn()
+
+    var obj = {
+        fn2:function () {
+            console.log(this)//输出的fn2
+            console.log(this.fn2())
+            // console.log(fn2),这样不可以输出，因为在内部作用域找不到就找外层作用域，外层作用域也没有
+        }
+    }
+    obj.fn2()
+</script>
+
+</body>
+</html>

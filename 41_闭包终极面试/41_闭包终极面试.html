@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script type="text/javascript">
+        function fun(n,o) {
+            console.log(o)
+            return{
+                fun:function (m) {
+                    return fun(m,n)
+                }
+            }
+        }
+        var a = fun(0) //undefined
+        a.fun(1)//0,运因为闭包里n=0
+        a.fun(2)//0
+        a.fun(3)//0
+
+        // 因为fun(0)是一个闭包，此时闭包里n=0.fun(0).fun(1)是一个闭包，此时闭包里n=1.以此类推
+        var b = fun(0).fun(1).fun(2).fun(3) //undefined,0,1,2
+
+
+        var c = fun(0).fun(1)//undefined,0
+        c.fun(2)//1
+
+    </script>
+</body>
+</html>
